@@ -2,7 +2,13 @@ class Course {
     constructor(courseId, courseName, required, credit) {
         this.courseId = courseId;
         this.courseName = courseName;
-        this.required = required;
+        if (required){
+            this.courseType = 'Compulsory';
+        }
+        else{
+            this.courseType = 'Elective';
+        }
+
         this.credit = credit;
         this.selected = false;
     }
@@ -46,8 +52,13 @@ class CourseView {
       courses.forEach(course => {
 
         const courseItem = document.createElement('div');
-        courseItem.classList.add('course-item');
-        courseItem.innerText = `${course.courseName}\n${course.courseType}\n${course.credit}`;
+        if (course.id % 2 ){
+            courseItem.classList.add('course-item-odd');
+        } else{
+            courseItem.classList.add('course-item-even');
+        }
+        //courseItem.classList.add('course-item');
+        courseItem.innerText = `${course.courseName}\nCourse Type: ${course.courseType}\nCourse Credit: ${course.credit}`;
         courseItem.addEventListener('click', () => {
             console.log('click')
             console.log(course.selected)
@@ -70,9 +81,15 @@ class CourseView {
             counter.innerHTML = counterVal
             // change colour when selected
             if (course.selected) {
-                courseItem.style.backgroundColor = 'green';
+                courseItem.style.backgroundColor = ' rgb(25, 170, 196)';
             } else {
-                courseItem.style.backgroundColor = 'white';
+                if (course.courseId % 2 == 0){
+                    courseItem.style.backgroundColor = 'rgb(221, 239, 221)';
+                }
+                else{
+                    courseItem.style.backgroundColor = 'white';
+                }
+               
             }
 
             //this.renderCourses(courses); // re-render the courses to update courses
@@ -90,7 +107,7 @@ class CourseView {
             console.log(course)
             const courseItemSelected = document.createElement('div');
             courseItemSelected.classList.add('course-item-selected');
-            courseItemSelected.innerText = `${course.courseName}\n${course.courseType}\n${course.credit}`;
+            courseItemSelected.innerText = `${course.courseName}\nCourse Type: ${course.courseType}\nCourse Credit: ${course.credit}`;
             
             courseList2.appendChild(courseItemSelected);
         }
