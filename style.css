@@ -1,4 +1,11 @@
 
+.header-section{
+
+    align-items: center;
+    justify-content: center;
+    
+}
+
 section {
     display: flex;
     flex-direction: row;
@@ -11,13 +18,13 @@ section {
 #row1,#row2 {
     flex-basis: 50%;
 }
-.title {
+/* .title {
     font-size: 30px;
     font-weight: bold;
     text-align: center;
     margin: 10px;
     
-}
+} */
 #course-list {
     display: flex;
     flex-direction: column;
