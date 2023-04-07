@@ -1,10 +1,27 @@
-
-.header-section{
-
-    align-items: center;
+#header-section {
+    display: flex;
     justify-content: center;
-    
-}
+    align-items: center;
+
+  }
+  
+  #header-2 {
+    text-align: center;
+  }
+  
+  #counter-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+  }
+  
+  #total-credit {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+  }
+  
 
 section {
     display: flex;
